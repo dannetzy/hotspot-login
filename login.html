@@ -20,7 +20,7 @@
         <h3>Hotspot TJKT</h3>
       </div>
       <div class="form">
-        <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+        <form name="login" action="/status.html" method="get">
           <input type="hidden" name="dst" value="$(link-orig)" />
           <input type="hidden" name="popup" value="true" />
           <h3 class="info">Sign in to your hotspot account</h3>
@@ -37,7 +37,7 @@
           <br><br>
           <input type="submit" value="Sign in" class="submit">
           <br><br><br><br>
-          <p>Want to use a trial account? <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">Click here</a></p>
+          <p>Want to use a trial account? <a href="/status.html">Click here</a></p>
         </form>
       </div>
     </div>
