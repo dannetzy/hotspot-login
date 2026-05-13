@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="2; url=$(link-orig)">
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="expires" content="-1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,27 +17,8 @@
       height: 546px;
     }
   </style>
-  <script>
-
-      var popup = '';
-      function openOrig() {
-    if (window.focus) popup.focus();
-    location.href = unescape('$(link-orig-esc)');
-      }
-      function openAd() {
-    location.href = unescape('$(link-redirect-esc)');
-      }
-      function openAdvert() {
-    if (window.name != 'hotspot_advert') {
-      popup = open('$(link-redirect)', 'hotspot_advert', '');
-      setTimeout("openOrig()", 1000);
-      return;
-    }
-    setTimeout("openAd()", 1000);
-      }
-  </script>
 </head>
-<body onLoad="openAdvert()">
+<body>
   <div class="main">
     <div class="flex-wrap">
       <div class="logo-wrapper">

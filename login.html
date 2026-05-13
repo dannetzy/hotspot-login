@@ -9,25 +9,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  $(if chap-id)
-    <form name="sendin" action="$(link-login-only)" method="post" style="display:none">
-        <input type="hidden" name="username" />
-        <input type="hidden" name="password" />
-        <input type="hidden" name="dst" value="$(link-orig)" />
-        <input type="hidden" name="popup" value="true" />
-    </form>
-
-    <script src="/md5.js"></script>
-    <script>
-        function doLogin() {
-            document.sendin.username.value = document.login.username.value;
-            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
-            document.sendin.submit();
-            return false;
-        }
-
-    </script>
-  $(endif)
   <div class="main">
     <div class="flex-wrap">
       <div class="logo-wrapper">
@@ -42,14 +23,11 @@
         <form name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
           <input type="hidden" name="dst" value="$(link-orig)" />
           <input type="hidden" name="popup" value="true" />
-          <h3 class="info $(if error)alert$(endif)">
-            $(if error == "")Sign in to your hotspot account$(endif)
-            $(if error)$(error)$(endif)
-          </h3>
+          <h3 class="info">Sign in to your hotspot account</h3>
           <br><br><br>
           <label for="username" class="input-label">
             Username
-            <input name="username" type="text" value="$(username)">
+            <input name="username" type="text">
           </label>
           <br>
           <label for="password" class="input-label">
@@ -59,7 +37,7 @@
           <br><br>
           <input type="submit" value="Sign in" class="submit">
           <br><br><br><br>
-          <p>$(if trial == 'yes')Want to use a trial account? <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">Click here</a>$(endif)</p>
+          <p>Want to use a trial account? <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">Click here</a></p>
         </form>
       </div>
     </div>

@@ -114,7 +114,7 @@ body {
   }
 }
 
-a:link, a:visited {
+a, a:visited {
   color: var(--main-color);
   &:hover {
     text-decoration: none;
